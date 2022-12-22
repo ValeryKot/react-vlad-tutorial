@@ -1,14 +1,20 @@
 // import { createElement as e, useState } from 'react';
+import { useEffect } from 'react';
 import Product from './components/Product';
-import {products} from './data/products';
-
+import { products } from './data/products';
 
 function App() {
   // const [count, setCount] = useState(0);
-
+  useEffect(() => {
+    console.log('effect')
+  }, []);
   return (
     <div className="container mx-auto max-w-2xl pt-5">
-      <Product product={products[0]} />
+      {products.map((prod) => (
+        <Product product={prod} key={prod.id} />
+      ))}
+      {/* <Product product={products[0]} />
+      <Product product={products[1]} /> */}
     </div>
   );
 }
